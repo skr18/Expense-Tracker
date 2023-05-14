@@ -1,7 +1,7 @@
 .expense-date {
     display: flex;
     flex-direction: column;
-    width: 5.5rem;
+    width: 6.5rem;
     height: 5.5rem;
     border: 1px solid #ececec;
     background-color: #2a2a2a;
@@ -23,4 +23,9 @@
   .expense-date__day {
     font-size: 1.5rem;
     font-weight: bold;
+  }
+    @media(max-width: 400px) {
+      .expense-date{
+      width: 3.5rem;
+    }
   }
