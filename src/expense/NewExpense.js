@@ -1,13 +1,12 @@
 import React,{useState} from 'react'
 import './NewExpense.css'
-function NewExpense() {
+function NewExpense(props) {
     const [title,newtitle]=useState('')
     const [amount,newamount] = useState('')
     const [date,newdate] = useState('')
 
     const tit = (event)=>{
         newtitle(event.target.value)
-        console.log(event.target.value)
     }
 
     const amt = (event)=>{
@@ -19,11 +18,14 @@ function NewExpense() {
     const chage = (event)=>{
         event.preventDefault()
         const data={
-            title:newtitle,
-            amount:newamount,
-            date:newdate
+            title:title,
+            amount:amount,
+            date:new Date(date)
         }
-        console.log(data)
+        newtitle('')
+        newamount('')
+        newdate('')
+        props.onNewdata(data)
     }
   return (
     <div className='new-expense'>
@@ -31,15 +33,15 @@ function NewExpense() {
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <label>Title</label>
-                    <input type="text" onChange={tit}/>
+                    <input type="text" onChange={tit} value={title}/>
                 </div>
                 <div className='new-expense__control'>
                     <label>Amount</label>
-                    <input type="number" onChange={amt}/>
+                    <input type="number" onChange={amt} value={amount}/>
                 </div>
                 <div className='new-expense__control'>
                     <label>Date</label>
-                    <input type="date"  onChange={dat}/>
+                    <input type="date"  onChange={dat} value={date}/>
                 </div>
             </div>
             <div className='new-expense__actions'>

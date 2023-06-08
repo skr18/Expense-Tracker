@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Expense.css'
 import ExpenceCard from './ExpenceCard';
+import Expfilter from './Expfilter';
 function Expences(props) {
+  const [year,setyear] = useState('2022')
+  const changenow =(opt)=>{
+    setyear(opt)
+    console.log(year)
+  }
+  const newfilterdata =
+    props.items.filter((ele)=>{
+      return ele.date.getFullYear().toString() === year;
+    })
+
   return (
     <div className="expenses">
+      <Expfilter selected={year} onfilter={changenow}/>
         {
-            props.items.map((ele)=>{
+            newfilterdata.map((ele)=>{
                 // console.log(ele.title)
                 return <ExpenceCard
                     key={ele.id}
