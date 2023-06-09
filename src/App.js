@@ -22,7 +22,7 @@ const data = [
     id: 'e4',
     title: 'New Desk (Wooden)',
     amount: 450,
-    date: new Date(2021, 5, 12),
+    date: new Date(2022, 5, 12),
   },
 ];
 
@@ -33,7 +33,7 @@ function App() {
     setexp([nwdata,...exp])
   }
   return (
-    <div >
+    <div>
       <NewExpense onNewdata={newdata}/>
       <Expences items={exp} />
     </div>

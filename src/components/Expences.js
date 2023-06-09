@@ -16,7 +16,7 @@ function Expences(props) {
   return (
     <div className="expenses">
       <Expfilter selected={year} onfilter={changenow}/>
-        {
+        { newfilterdata.length == 0 ? <p style={{color:'white'}}>No data available</p>:
             newfilterdata.map((ele)=>{
                 // console.log(ele.title)
                 return <ExpenceCard
